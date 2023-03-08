@@ -1,9 +1,9 @@
 let fields = [];
-
+let gameOver = false;
 let currentShape = 'cross';
 
 function fillshape(id){
-    if (!fields[id]) {
+    if (!fields[id] && !gameOver) {
     
     if(currentShape == 'cross'){
         currentShape = 'circle';
@@ -72,16 +72,18 @@ let winner;
 
     if (fields[0] == fields[4] && fields[4] == fields[8] && fields[0]) { 
         winner = fields[0];
-        document.getElementById('line-7').style.transform = 'rotate(45deg) scaleX(1)';
+        document.getElementById('line-7').style.transform = 'rotate(45deg) scaleX(1.2)';
     }
 
     if (fields[2] == fields[4] && fields[4] == fields[6] && fields[2]) {
         winner = fields[2];
-        document.getElementById('line-8').style.transform = 'rotate(-45deg) scaleX(1)';
+        document.getElementById('line-8').style.transform = 'rotate(-45deg) scaleX(1.2)';
     }
 
     if (winner) {
          console.log('gewonnen', winner);
+         gameOver = true
+         document.getElementById('game-over').classList.remove('d-none');
     }
    
 }

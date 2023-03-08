@@ -86,9 +86,33 @@ body {
     width: 350px;
     transform: scaleX(0.0);
     transition: transform 225ms ease-in-out;
+    z-index: 1;
 }
 
 .make-vertical{
     transform: rotate(90deg) scaleX(0.0);
 
+}
+
+.game-over{
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 2;
+    animation: zoomIn 3000ms ease-in-out;
+    height: 80vh;
+    object-fit: contain ;
+}
+
+@keyframes zoomIn{
+    from{
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
 }
