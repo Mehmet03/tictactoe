@@ -57,17 +57,17 @@ let winner;
 
     if (fields[0] == fields[3] && fields[3] == fields[6] && fields[0]) {
         winner = fields[0];
-        document.getElementById('line-6').style.transform = 'rotate(90deg) scaleX(1)';
+        document.getElementById('line-6').style.transform = 'rotate(90deg) scaleX(1.01)';
     }
 
     if (fields[1] == fields[4] && fields[4] == fields[7] && fields[1]) {
         winner = fields[1];
-        document.getElementById('line-5').style.transform = 'rotate(90deg) scaleX(1)';
+        document.getElementById('line-5').style.transform = 'rotate(90deg) scaleX(1.01)';
     }
     
     if (fields[2] == fields[5] && fields[5] == fields[8] && fields[2]) {
         winner = fields[2];
-        document.getElementById('line-4').style.transform = 'rotate(90deg) scaleX(1)';
+        document.getElementById('line-4').style.transform = 'rotate(90deg) scaleX(1.01)';
     }
 
     if (fields[0] == fields[4] && fields[4] == fields[8] && fields[0]) { 
@@ -84,6 +84,23 @@ let winner;
          console.log('gewonnen', winner);
          gameOver = true
          document.getElementById('game-over').classList.remove('d-none');
+         document.getElementById('restart-game').classList.remove('d-none');
     }
    
+}
+
+function restart(){
+    gameOver = false;
+    fields = [];
+    document.getElementById('game-over').classList.add('d-none');
+    document.getElementById('restart-game').classList.add('d-none');
+
+    for (let i = 1; i < 9; i++){
+        document.getElementById('line-' + i).classList.add('d-none');
+    }
+
+    for (let i = 0; i < 9; i++){
+        document.getElementById('circle-' + i).classList.add('d-none');
+        document.getElementById('cross-' + i).classList.add('d-none');
+    }
 }

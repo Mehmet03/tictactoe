@@ -89,12 +89,26 @@ body {
     z-index: 1;
 }
 
-.make-vertical{
-    transform: rotate(90deg) scaleX(0.0);
+.make-vertical {
+    transform: rotate(90deg) scaleX(0);
 
 }
 
-.game-over{
+.lines {
+    display: flex;
+    justify-content: center;
+}
+
+.all-lines {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.game-over {
     position: absolute;
     left: 0;
     right: 0;
@@ -102,16 +116,35 @@ body {
     z-index: 2;
     animation: zoomIn 3000ms ease-in-out;
     height: 80vh;
-    object-fit: contain ;
+    object-fit: contain;
 }
 
-@keyframes zoomIn{
-    from{
+.restart-btn {
+    animation: zoomIn 3000ms ease-in-out;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    background-color: #1c0b7f;
+    z-index: 2;
+    width: 300px;
+    height: 100px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 40px;
+}
+
+.restart-btn:hover {
+    background-color: #4029c4;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+@keyframes zoomIn {
+    from {
         transform: scale(0);
         opacity: 0;
     }
 
-    to{
+    to {
         opacity: 1;
         transform: scale(1);
     }
